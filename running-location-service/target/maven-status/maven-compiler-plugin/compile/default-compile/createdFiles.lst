@@ -1,0 +1,6 @@
+demo/domain/UnitInfo.class
+demo/domain/Location$GpsStatus.class
+demo/domain/Location$RunnerMovementType.class
+demo/RunningLocationServiceApplication.class
+demo/domain/Location.class
+demo/domain/MedicalInfo.class
