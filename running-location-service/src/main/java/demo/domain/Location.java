@@ -1,9 +1,17 @@
 package demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
+@Entity
+@Table(name = "LOCATIONS")
 public class Location {
 
     enum GpsStatus{
@@ -14,7 +22,19 @@ public class Location {
         STOPPED, IN_MOTION;
     }
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @Embedded
+    @AttributeOverride(name="bandMake", column = @Column(name = "unit_band_make"))
     private UnitInfo unitInfo;
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "fmi", column = @Column(name = "medical_fmi")),
+            @AttributeOverride(name = "bfr", column = @Column(name = "medical_bfr"))
+    })
     private MedicalInfo medicalInfo;
 
     private double latitude;
@@ -36,12 +56,17 @@ public class Location {
         this.unitInfo = null;
     }
 
-    public Location(String runningID) {
-        this.unitInfo = new UnitInfo(runningID);
+    @JsonCreator
+    public Location(@JsonProperty("runningId") String runningId){
+        this.unitInfo = new UnitInfo(runningId);
     }
 
     public Location(UnitInfo unitInfo){
         this.unitInfo = unitInfo;
+    }
+
+    public String getRunningId(){
+        return this.unitInfo==null ? null : this.unitInfo.getRunningId();
     }
 
 
