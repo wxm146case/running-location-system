@@ -17,7 +17,7 @@ import java.util.List;
 @JsonPropertyOrder({"numberOfGpsSimulatorRequests", "gpsSimulatorRequests"})
 public class SimulatorInitLocations {
 
-    private List<GpsSimulatorRequest> gpsSimulatorRequests = new ArrayList<>(0);
+    private List<GpsSimulatorRequest> gpsSimulatorRequests = new ArrayList<GpsSimulatorRequest>(0);
 
     public int getNumberOfGpsSimulatorRequests() {
         return gpsSimulatorRequests.size();

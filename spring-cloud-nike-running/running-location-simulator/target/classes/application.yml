@@ -1,0 +1,16 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: running-location-simulator
+simulation:
+  service:
+    googleApiKey: AIzaSyDMdyiSlaOL1oRFdNIzNA-pyv_ewRaj10w
+
+#    AIzaSyDvdz2cb4zfp8NQVFu4kdzXFoIcHG744I4
+
+com:
+  ross:
+    running:
+      location:
+        distribution: http://localhost:9006

@@ -30,13 +30,13 @@ public class LocationSimulatorRestApi {
     @Autowired
     private PathService pathService;
 
-    private Map<Long, LocationSimulatorInstance> taskFutures = new HashMap<>();
+    private Map<Long, LocationSimulatorInstance> taskFutures = new HashMap<Long, LocationSimulatorInstance>();
 
     @RequestMapping("/simulation")
     public List<LocationSimulatorInstance> simultation() {
         final SimulatorInitLocations fixture = this.pathService.loadSimulatorInitLocations();
 
-        final List<LocationSimulatorInstance> instances = new ArrayList<>();
+        final List<LocationSimulatorInstance> instances = new ArrayList<LocationSimulatorInstance>();
 
         for(GpsSimulatorRequest gpsSimulatorRequest : fixture.getGpsSimulatorRequests()) {
             final LocationSimulator locationSimulator = gpsSimulatorFactory.prepareGpsSimulator(gpsSimulatorRequest);
@@ -63,5 +63,6 @@ public class LocationSimulatorRestApi {
         taskFutures.clear();
         return numberOfCancelledTasks;
     }
+
 
 }

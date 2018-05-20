@@ -48,7 +48,7 @@ public class DefaultGpsSimulatorFactory implements GpsSimulatorFactory {
     }
 
     private List<Leg> createLegsList(List<Point> points) {
-        final List<Leg> legs = new ArrayList<>();
+        final List<Leg> legs = new ArrayList<Leg>();
         for (int i = 0; i < (points.size() - 1); i++) {
             Leg leg = new Leg();
             leg.setId(i);

@@ -19,7 +19,7 @@ public class DefaultPathService implements PathService {
 
     @Override
     public SimulatorInitLocations loadSimulatorInitLocations() {
-        final InputStream is = this.getClass().getResourceAsStream("/init-location.json");
+        final InputStream is = this.getClass().getResourceAsStream("/init-locations.json");
 
 
         try {

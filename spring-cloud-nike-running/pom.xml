@@ -12,6 +12,7 @@
         <module>running-location-simulator</module>
         <module>running-location-distribution</module>
         <module>running-location-updater</module>
+        <module>platform</module>
     </modules>
 
     <parent>
