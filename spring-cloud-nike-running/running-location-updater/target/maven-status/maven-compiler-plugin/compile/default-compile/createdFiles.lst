@@ -1,2 +1,10 @@
+demo/WebSocketConfig.class
 demo/RunningLocationUpdaterApplication.class
+demo/model/MedicalInfo.class
+demo/web/WebSocketApi.class
+demo/model/Point.class
+demo/model/SupplyLocation.class
+demo/model/CurrentPositionDto.class
+demo/model/RunnerStatus.class
+demo/model/CurrentPosition.class
 demo/RunningLocationUpdaterSink.class

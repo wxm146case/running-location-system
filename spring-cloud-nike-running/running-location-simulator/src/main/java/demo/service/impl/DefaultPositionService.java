@@ -1,6 +1,7 @@
 package demo.service.impl;
 
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import demo.model.CurrentPosition;
 import demo.service.PositionService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +20,7 @@ public class DefaultPositionService implements PositionService {
 
 //    @Value("${com.ross.running.location.distribution}")
 //    private String runningLocationDistribution;
-
+    @HystrixCommand(fallbackMethod = "processPositionInfoFallback")
     @Override
     public void processPositionInfo(long id, CurrentPosition currentPosition,
                                     boolean sendPositionsToDistributionService) {
@@ -31,5 +32,11 @@ public class DefaultPositionService implements PositionService {
 
 
     }
+
+    public void processPositionInfoFallback(long id, CurrentPosition currentPosition, boolean sendPositionsToDistributionService){
+        log.error("Hystrix Fallback Method. Unable to send message for distribution");
+    }
+
+
 
 }
