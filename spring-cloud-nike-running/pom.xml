@@ -13,6 +13,7 @@
         <module>running-location-distribution</module>
         <module>running-location-updater</module>
         <module>platform</module>
+        <module>edging-service</module>
     </modules>
 
     <parent>
